@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Guessing game</string>
-
+    <string name="title">Guess a number between 0 to 100!</string>
+    <string name="high">Number is too high</string>
+    <string name="low">Number is too low</string>
+    <string name="won">You won!</string>
+    <string name="enter">Enter</string>
+    <string name="reset">Reset</string>
 </resources>
