@@ -6,4 +6,6 @@
     <string name="won">You won!</string>
     <string name="enter">Enter</string>
     <string name="reset">Reset</string>
+    <string name="remaining_guesses">Remaining guesses: </string>
+    <string name="loss">You loss. Try again..</string>
 </resources>

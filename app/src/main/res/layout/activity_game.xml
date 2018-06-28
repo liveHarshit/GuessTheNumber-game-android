@@ -16,11 +16,13 @@
         android:textStyle="bold"
         android:textColor="#000000"/>
 
+
+
     <EditText
         android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:id="@+id/number_text_view"
+        android:id="@+id/number_edit_text"
         android:inputType="number"/>
 
     <LinearLayout
@@ -40,7 +42,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reset"
+            android:id="@+id/reset_button"
             android:layout_marginLeft="16dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin ="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remaining_guesses"
+            android:textColor="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:id="@+id/remaining_guesses_text_view"/>
 
     </LinearLayout>
 
@@ -49,8 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="25sp"
-        android:id="@+id/result_text_view"
-        android:padding="16dp" />
+        android:id="@+id/result_text_view" />
 
 
 </LinearLayout>
