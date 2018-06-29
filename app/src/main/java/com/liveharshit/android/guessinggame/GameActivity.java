@@ -1,6 +1,8 @@
 package com.liveharshit.android.guessinggame;
 
+import android.content.DialogInterface;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,9 +50,36 @@ public class GameActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if((remainingGuesses==0||remainingGuesses==7)||userWon) {
+                    resetData();
+                } else {
+                    showResetAlertDialog();
+                }
+            }
+        });
+    }
+
+    private void showResetAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.drawable.ic_settings_backup_restore_black_48dp);
+        builder.setTitle("RESET");
+        builder.setMessage("Are you sure to want to reset?");
+        builder.setPositiveButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(dialog!=null) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 resetData();
             }
         });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     private void checkCurrentNumber(int answer) {
@@ -64,22 +93,52 @@ public class GameActivity extends AppCompatActivity {
             if (remainingGuesses > 1) {
                 resultTextView.setText(R.string.low);
             } else {
-                resultTextView.setText(R.string.loss);
+                showLossAlertDialog();
             }
         }
         if(number>answer) {
             if (remainingGuesses > 1) {
                 resultTextView.setText(R.string.high);
             } else {
-                resultTextView.setText(R.string.loss);
+                showLossAlertDialog();
             }
         }
         if(number==answer) {
-            resultTextView.setText(R.string.won);
+            showWonAlertDialog();
             userWon = true;
         }
         remainingGuesses--;
         remainingGuessesTextView.setText(Integer.toString(remainingGuesses));
+    }
+
+    private void showLossAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.drawable.loss_face);
+        builder.setTitle(R.string.loss);
+        builder.setMessage("Let's play again!");
+        builder.setPositiveButton("PLAY AGAIN", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                resetData();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void showWonAlertDialog () {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.drawable.won_face);
+        builder.setTitle(R.string.won);
+        builder.setMessage("Remaining chances: " + remainingGuesses + "\nNice try, Let's play again...");
+        builder.setPositiveButton("RESET", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                resetData();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     private int choseRandomNumber() {

@@ -1,80 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title"
-        android:textSize="20sp"
-        android:layout_margin="16dp"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
-
-
-
-    <EditText
-        android:layout_width="256dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:id="@+id/number_edit_text"
-        android:inputType="number"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
+        android:orientation="vertical">
 
 
-        <Button
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/title"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/number_edit_text"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:inputType="number" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/enter_button"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/ic_input_black_48dp" />
+
+            <Button
+                android:id="@+id/reset_button"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/ic_settings_backup_restore_black_48dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/enter"
-            android:id="@+id/enter_button"/>
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remaining_guesses"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/remaining_guesses_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/result_text_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/reset"
-            android:id="@+id/reset_button"
-            android:layout_marginLeft="16dp"/>
+            android:layout_margin="16dp"
+            android:textSize="25sp" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin ="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/remaining_guesses"
-            android:textColor="@color/colorAccent"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:id="@+id/remaining_guesses_text_view"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_margin="16dp"
-        android:textSize="25sp"
-        android:id="@+id/result_text_view" />
+        android:text="@string/developer"
+        android:textStyle="bold" />
 
 
-
-</LinearLayout>
+</RelativeLayout>

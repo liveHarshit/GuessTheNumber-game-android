@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">Guessing game</string>
+    <string name="app_name">Guessing the number</string>
     <string name="title">Guess a number between 0 to 100!</string>
-    <string name="high">Number is too high</string>
-    <string name="low">Number is too low</string>
+    <string name="high">Number is too high, try lower one</string>
+    <string name="low">Number is too low, try higher one</string>
     <string name="won">You won!</string>
     <string name="enter">Enter</string>
     <string name="reset">Reset</string>
     <string name="remaining_guesses">Remaining guesses: </string>
-    <string name="loss">You loss. Try again..</string>
+    <string name="loss">Sorry, You loss.</string>
     <string name="error">Please enter a number to continue.</string>
+    <string name="developer">Developed By: live.Harshit</string>
 </resources>
