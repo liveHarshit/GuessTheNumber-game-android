@@ -8,4 +8,5 @@
     <string name="reset">Reset</string>
     <string name="remaining_guesses">Remaining guesses: </string>
     <string name="loss">You loss. Try again..</string>
+    <string name="error">Please enter a number to continue.</string>
 </resources>

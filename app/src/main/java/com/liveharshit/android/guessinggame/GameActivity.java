@@ -19,7 +19,7 @@ public class GameActivity extends AppCompatActivity {
     private int answer;
     private int remainingGuesses = 7;
     private boolean userWon =false;
-    boolean doubleBackToExitPressedOnce = false;
+    boolean isBackPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,6 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(remainingGuesses > 0 && !userWon) {
                     checkCurrentNumber(answer);
-                    remainingGuesses--;
-                    remainingGuessesTextView.setText(Integer.toString(remainingGuesses));
                 }
             }
         });
@@ -57,6 +55,10 @@ public class GameActivity extends AppCompatActivity {
 
     private void checkCurrentNumber(int answer) {
         String  numberString = numberEditText.getText().toString().trim();
+        if (numberString.isEmpty()) {
+            Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
+            return;
+        }
         int number = Integer.parseInt(numberString);
         if(number<answer) {
             if (remainingGuesses > 1) {
@@ -76,6 +78,8 @@ public class GameActivity extends AppCompatActivity {
             resultTextView.setText(R.string.won);
             userWon = true;
         }
+        remainingGuesses--;
+        remainingGuessesTextView.setText(Integer.toString(remainingGuesses));
     }
 
     private int choseRandomNumber() {
@@ -95,19 +99,19 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
+        if (isBackPressed) {
             super.onBackPressed();
             return;
         }
 
-        this.doubleBackToExitPressedOnce = true;
+        this.isBackPressed = true;
         Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                isBackPressed =false;
             }
         }, 2000);
     }
