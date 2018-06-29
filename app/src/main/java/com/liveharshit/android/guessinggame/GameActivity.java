@@ -1,6 +1,7 @@
 package com.liveharshit.android.guessinggame;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -28,11 +29,11 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        enterButton = (Button)findViewById(R.id.enter_button);
-        resetButton = (Button)findViewById(R.id.reset_button);
-        numberEditText = (EditText)findViewById(R.id.number_edit_text);
-        resultTextView = (TextView)findViewById(R.id.result_text_view);
-        remainingGuessesTextView = (TextView)findViewById(R.id.remaining_guesses_text_view);
+        enterButton = findViewById(R.id.enter_button);
+        resetButton = findViewById(R.id.reset_button);
+        numberEditText = findViewById(R.id.number_edit_text);
+        resultTextView = findViewById(R.id.result_text_view);
+        remainingGuessesTextView = findViewById(R.id.remaining_guesses_text_view);
 
         remainingGuessesTextView.setText(Integer.toString(remainingGuesses));
         answer = choseRandomNumber();
@@ -130,7 +131,7 @@ public class GameActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setIcon(R.drawable.won_face);
         builder.setTitle(R.string.won);
-        builder.setMessage("Remaining chances: " + remainingGuesses + "\nNice try, Let's play again...");
+        builder.setMessage("Remaining chances: " + Integer.toString(remainingGuesses - 1) + "\nNice try, Let's play again...");
         builder.setPositiveButton("RESET", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
