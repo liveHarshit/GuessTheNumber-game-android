@@ -43,6 +43,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(remainingGuesses > 0 && !userWon) {
+                    resultTextView.setText("");
                     checkCurrentNumber(answer);
                 }
             }
@@ -92,14 +93,18 @@ public class GameActivity extends AppCompatActivity {
         int number = Integer.parseInt(numberString);
         if(number<answer) {
             if (remainingGuesses > 1) {
-                resultTextView.setText(R.string.low);
+                resultTextView.append(numberString);
+                resultTextView.append(" ");
+                resultTextView.append(getString(R.string.low));
             } else {
                 showLossAlertDialog();
             }
         }
         if(number>answer) {
             if (remainingGuesses > 1) {
-                resultTextView.setText(R.string.high);
+                resultTextView.append(numberString);
+                resultTextView.append(" ");
+                resultTextView.append(getString(R.string.high));
             } else {
                 showLossAlertDialog();
             }
@@ -110,6 +115,7 @@ public class GameActivity extends AppCompatActivity {
         }
         remainingGuesses--;
         remainingGuessesTextView.setText(Integer.toString(remainingGuesses));
+        numberEditText.setText("");
     }
 
     private void showLossAlertDialog() {

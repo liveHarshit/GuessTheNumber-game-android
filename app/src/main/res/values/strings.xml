@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Guess the number</string>
     <string name="title">Guess a number between 0 to 100!</string>
-    <string name="high">Number is too high, try lower one</string>
-    <string name="low">Number is too low, try higher one</string>
+    <string name="high"> is too high, try lower one</string>
+    <string name="low"> is too low, try higher one</string>
     <string name="won">You won!</string>
     <string name="enter">Enter</string>
     <string name="reset">Reset</string>
