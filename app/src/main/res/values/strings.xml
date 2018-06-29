@@ -6,7 +6,7 @@
     <string name="won">You won!</string>
     <string name="enter">Enter</string>
     <string name="reset">Reset</string>
-    <string name="remaining_guesses">Remaining guesses: </string>
+    <string name="remaining_guesses">Remaining chances: </string>
     <string name="loss">Sorry, You loss.</string>
     <string name="error">Please enter a number to continue.</string>
     <string name="developer">Developed By: live.Harshit</string>
