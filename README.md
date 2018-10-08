@@ -1,5 +1,5 @@
-# GuessTheNumber-game-android
-A random number is chosen, guess the number in limited chances.
+# Guess The Number
+A random number is chosen and you have to guess the number in limited chances.
 
 ### Screenshots of a sample Android app:
 <p align="center">
